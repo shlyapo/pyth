@@ -1,0 +1,21 @@
+{% extends "first/accountant/accountant_start.html" %}
+{% load custom_tags %}
+{% block title %}SalaryNow{% endblock %}
+
+{% block content %}
+    {% if trans.count != 0 %}
+    <h1>Trans Money</h1>
+        <table>
+     {% for s in trans %}
+         <tr><th scope="row">{{ s|get_item:"status" }}</th>
+                <td>{{ s|get_item:"sum" }}</td>
+                <td>{{ s|get_item:"date" }}</td>
+                <td>{{ s|get_item:"sum" }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+          {% else %}
+            <p>No trans(</p>
+    {% endif %}
+
+{% endblock %}

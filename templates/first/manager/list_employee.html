@@ -1,0 +1,23 @@
+{% extends "first/manager/manager_start.html" %}
+{% block container %}
+    {% load custom_tags %}
+{% block content %}
+<table class="table">
+    <tr>
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Profession</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+             {% for emp in salary_com %}
+            <tr>
+                <td>{{ emp|get_item:"profession" }}</td>
+                <td>{{ emp|get_item:"date_of_salary" }}</td>
+             </tr>
+        {% endfor %}
+        </tbody>
+</table>
+{% endblock %}
+{% endblock %}

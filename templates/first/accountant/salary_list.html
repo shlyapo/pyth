@@ -1,0 +1,25 @@
+{% extends "first/accountant/accountant_start.html" %}
+{% load custom_tags %}
+{% block title %}SalaryNow{% endblock %}
+
+{% block content %}
+    {% if salaries.count != 0 %}
+    <h1>Choose salary</h1>
+        <table>
+     {% for s in salaries %}
+         <tr><th scope="row">{{ s|get_item:"profession" }}</th>
+                <td>{{ s|get_item:"last_name" }}</td>
+                <td>{{ s|get_item:"salary" }}</td>
+                <td>{{ s|get_item:"sum" }}</td>
+                <td>{{ s|get_item:"date_of_salary" }}</td>
+        <td>
+            <a href="{% url 'apply_salary' s|get_item:"salary"%}" class="btn btn-primary my-2">Apply</a>
+        </td>
+            </tr>
+        {% endfor %}
+        </table>
+          {% else %}
+            <p>No salary(</p>
+    {% endif %}
+
+{% endblock %}

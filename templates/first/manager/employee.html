@@ -1,0 +1,12 @@
+{% extends 'first/manager/manager_start.html' %}
+{% block content %}
+    <div>
+    <h2 class="jumbotron-heading">Employee</h2>
+    <div class="row">
+         {% for em in employee%}
+            <li> {{ em.last_name }}</li>
+             <a href="{% url 'create' user|get_item:"employee"  %}" class="btn btn-primary my-2">Create</a>
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}

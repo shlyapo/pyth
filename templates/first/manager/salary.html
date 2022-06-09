@@ -1,0 +1,31 @@
+{% extends "first/manager/manager_start.html" %}
+{% block container %}
+    {% load custom_tags %}
+{% block content %}
+<table class="table">
+    <tr>
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Last name</th>
+                <th scope="col">Profession</th>
+                <th scope="col">Sum</th>
+                <th scope="col">Date</th>
+                <th scope="col">ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+             {% for emp in salary_com %}
+            <tr>
+                <td>{{ emp|get_item:"last_name" }}</td>
+                <td>{{ emp|get_item:"profession" }}</td>
+                <td>{{ emp|get_item:"sum" }}</td>
+                <td>{{ emp|get_item:"date_of_salary" }}</td>
+                <td>
+                    <a href="{% url 'delete' emp|get_item:"project"  %}" class="btn btn-primary my-2">Delete</a>
+                </td>
+             </tr>
+        {% endfor %}
+        </tbody>
+</table>
+{% endblock %}
+{% endblock %}

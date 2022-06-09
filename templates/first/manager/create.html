@@ -1,0 +1,18 @@
+{% extends "first/manager/manager_start.html" %}
+{% block content %}
+    <br>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+            <select class ="select box" name="dropdown">
+                {% for employee  in comp_emps %}
+                     <option value={{ employee.user.username}}>{{ employee.user.username}}</option>
+                 {% endfor %}
+                 </select>
+        <br>
+
+
+          <button class="btn btn-success" type="submit">Save</button><br>
+    </form>
+{% endblock %}

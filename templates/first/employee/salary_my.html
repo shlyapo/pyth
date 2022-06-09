@@ -1,0 +1,33 @@
+{% extends 'first/employee/employee_start.html' %}
+
+{% block container %}
+    {% load custom_tags %}
+{% block content %}
+{% if salary.count != 0 %}
+<table class="table">
+    <tr>
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Profession</th>
+                <th scope="col">Company</th>
+                <th scope="col">Sum</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+             {% for sal in salary|get_item:"salary_of_list" %}
+            <tr>
+                <th scope="row">{{ sal.profession }}</th>
+                <td>{{ sal.company }}</td>
+                <td>{{  sal.sum }}</td>
+                <td>{{  sal.date_of_salary }}</td>
+             </tr>
+        {% endfor %}
+        </tbody>
+</table>
+    {% else %}
+            <p>You have not got salary :(</p>
+    {% endif %}
+{% endblock %}
+{% endblock %}
+

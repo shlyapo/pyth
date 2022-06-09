@@ -1,0 +1,29 @@
+{% extends 'first/manager/manager_start.html' %}
+{% load custom_tags %}
+{% block content %}
+<body class="container">
+    {% if project.count != 0 %}
+    <h2>Список пользователей</h2>
+    <table>
+        <tr><th>First Name</th><th>Last Name</th><th>Passport series</th><th>Passport number</th><th>Project</th></tr>
+        {% for user in project %}
+        <tr><th scope="row">{{ user|get_item:"first_name" }}</th>
+                <td>{{ user|get_item:"last_name" }}</td>
+                <td>{{ user|get_item:"passport_series" }}</td>
+                <td>{{ user|get_item:"passport_numer" }}</td>
+                <td>{{ user|get_item:"Project" }}</td>
+
+        <td>
+            <a href="{% url "confirm" user|get_item:"project"  %}" class="btn btn-primary my-2">Apply</a>
+            <a href="{% url "delete_proj" user|get_item:"project"  %}" class="btn btn-secondary my-2">Delete</a>
+        </td>
+            </tr>
+
+        {% endfor %}
+        </table>
+        {% else %}
+            <p>You have not got any applications for registration(</p>
+    {% endif %}
+{% endblock %}
+</body>
+</html>

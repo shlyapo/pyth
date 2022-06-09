@@ -1,0 +1,11 @@
+{% extends 'first/manager/manager_start.html' %}
+{% block content %}
+    <h1>Delete</h1>
+    <form action="" method="post">
+
+        {% csrf_token %}
+        <p>Are you sure that you want delete selected application?</p>
+        <button class="btn btn-danger" type="submit">Confirm</button>
+
+    </form>
+{% endblock %}

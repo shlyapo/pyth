@@ -1,0 +1,15 @@
+{% extends 'first/base.html' %}
+
+{% block content %}
+    <div class="row" style="margin-bottom: 50px; margin-top: 50px">
+    <div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registration</h3>
+    <hr>
+  <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-success" value="Send">
+
+    </form>
+    </div>
+    </div>
+{% endblock %}

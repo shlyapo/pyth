@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static "css/base.css" %}" rel="stylesheet">
+</head>
+<body>
+<div id="header">
+    <span class="logo">SalaryNow</span>
+    {% if request.user.is_authenticated %}
+        <ul class="menu">
+            <li {% if section == "company"%}class="selected"{% endif %}>
+            <a href="{% url "company" %}">Select Company</a>
+            </li>
+        </ul>
+    {% endif %}
+    <span class="user">
+        {% if request.user.is_authenticated %}
+            Hello {{ request.user.first_name }},
+            <a href="{% url "logout" %}">Logout</a>
+        {% else %}
+             Hello NowSalary,
+            <a href="{% url "login" %}">Log-in</a>
+        {% endif %}
+    </span>
+</div>
+<div id="content">
+    {% block content %}
+        <main class="px-3">
+            <h1 >You with SalaryNow,{{ employee.first_name }} {{ employee.last_name }}</h1>
+        </main>
+    {% endblock %}
+</div>
+
+</body>
+</html>
