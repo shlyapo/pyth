@@ -30,7 +30,8 @@ class SignUpView(CreateView):
         get_user=User.objects.filter(pk=current_user.id).first()
         client=Employee()
         client.user=get_user
-        money=Money.objects.create(employee=client)
+        money=Money.objects.create(employee_id=get_user.id)
+        money.employee=client
         money.save()
         #salary_list=SalaryList.objects.create()
         #salary_list.save()

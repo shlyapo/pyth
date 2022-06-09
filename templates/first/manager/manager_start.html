@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -11,17 +10,17 @@
     <span class="logo">SalaryNow</span>
     {% if request.user.is_authenticated %}
         <ul class="menu">
-            <li {% if section == "salary"%}class="selected"{% endif %}>
-            <a href="{% url 'salary' %}">Salary</a>
+            <li {% if section == "salary" %}class="selected"{% endif %}>
+                <a href="{% url 'salary' %}">Salary</a>
             </li>
             <li {% if section == "create" %}class="selected"{% endif %}>
-            <a href="{% url 'create' %}">Create salary</a>
+                <a href="{% url 'create' %}">Create salary</a>
             </li>
             <li {% if section == "apply" %}class="selected"{% endif %}>
-            <a href="{% url 'project' %}">Apply employee</a>
+                <a href="{% url 'project' %}">Apply employee</a>
             </li>
             <li {% if section == "money_add" %}class="selected"{% endif %}>
-            <a href="{% url 'money_add' %}">Add money</a>
+                <a href="{% url 'money_add' %}">Add money</a>
             </li>
         </ul>
     {% endif %}
@@ -30,7 +29,7 @@
             Hello {{ request.user.first_name }},
             <a href="{% url "logout" %}">Logout</a>
         {% else %}
-             Hello NowSalary,
+            Hello NowSalary,
             <a href="{% url "login" %}">Log-in</a>
         {% endif %}
     </span>
@@ -38,7 +37,7 @@
 <div id="content">
     {% block content %}
         <main class="px-3">
-            <h1 >You with SalaryNow,{{ client.first_name }} {{ client.last_name }}</h1>
+            <h1>You with SalaryNow,{{ client.first_name }} {{ client.last_name }}</h1>
         </main>
     {% endblock %}
 </div>
