@@ -88,10 +88,10 @@ STATICFILES_DIRS = [
 DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django',
-        'USER':  'postgres',
-        'PASSWORD': '1111',
-        'HOST': '127.0.0.1',
+        'NAME': 'dbq0u68ps4deaa',
+        'USER':  'aftxzdtybihmfn',
+        'PASSWORD': '6e826d7dffb9553f201c3d288779b0b7df9265f5e3eda8d3d772f6bc83594e8c',
+        'HOST': 'ec2-54-228-32-29.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
