@@ -83,5 +83,9 @@ class RegistrationView(View):
             new_user.save()
             return render(request, 'first/registration/register_done.html', {'new_user': new_user})
 
+class LogoutView(View):
+    def get(self, request):
+        logout(request)
+        return  render(request, 'first/base.html')
 
 

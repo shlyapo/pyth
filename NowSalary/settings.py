@@ -13,7 +13,7 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-import django_heroku
+#import django_heroku
 from django.urls import reverse_lazy
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -89,10 +89,10 @@ STATICFILES_DIRS = [
 DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dbq0u68ps4deaa',
-        'USER':  'aftxzdtybihmfn',
-        'PASSWORD': '6e826d7dffb9553f201c3d288779b0b7df9265f5e3eda8d3d772f6bc83594e8c',
-        'HOST': 'ec2-54-228-32-29.eu-west-1.compute.amazonaws.com',
+        'NAME': 'NowSalary',
+        'USER':  'liza',
+        'PASSWORD': '1111',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
@@ -135,7 +135,7 @@ LOGOUT_URL = reverse_lazy('logout')
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
 
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
